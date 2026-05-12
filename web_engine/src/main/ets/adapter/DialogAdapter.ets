@@ -28,6 +28,7 @@
  */
 
 import fs from '@ohos.file.fs';
+import fileUri from '@ohos.file.fileuri';
 import LogUtil from '../utils/LogUtil';
 import LogMethod from '../common/LogDecorator';
 import picker from '@ohos.file.picker';
@@ -38,6 +39,7 @@ import { BusinessError } from '@ohos.base';
 import { image } from '@kit.ImageKit';
 import { inject, injectable } from 'inversify';
 import { ContextAdapter } from './ContextAdapter';
+import { PermissionManagerAdapter } from './PermissionManagerAdapter';
 
 const TAG: string = 'Dialog';
 
@@ -90,11 +92,14 @@ export class DialogAdapter extends BaseAdapter {
   private static DEFAULT_DIR: string = 'file://docs/storage/Users/currentUser';
   private static MAX_SELECT_NUMBER: number = 500;
   private ctxAdapter: ContextAdapter;
+  private permissionManagerAdapter: PermissionManagerAdapter;
   private allFIleDescriptionId: number = $r("app.string.upload_all_file_description").id;
 
-  constructor(@inject(ContextAdapter) ctxAdapter: ContextAdapter) {
+  constructor(@inject(ContextAdapter) ctxAdapter: ContextAdapter,
+    @inject(PermissionManagerAdapter) permissionManagerAdapter: PermissionManagerAdapter) {
     super();
     this.ctxAdapter = ctxAdapter;
+    this.permissionManagerAdapter = permissionManagerAdapter;
   }
 
   @LogMethod
@@ -165,7 +170,13 @@ export class DialogAdapter extends BaseAdapter {
       if (DocumentSelectResult.length === 0) {
         callback([], true);
       } else {
-        callback(DocumentSelectResult, false);
+        let filePaths = this.convertUrisToPaths(DocumentSelectResult);
+        // 持久化文件夹访问权限，下次打开无需重复授权
+        if (dialogSettings.properties_open_directory) {
+          this.permissionManagerAdapter.fileAccessPersist(DocumentSelectResult);
+          this.permissionManagerAdapter.saveUris(DocumentSelectResult);
+        }
+        callback(filePaths, false);
       }
     }).catch((err: BusinessError) => {
       LogUtil.error(TAG, 'DocumentViewPicker.select failed with err: ' + JSON.stringify(err));
@@ -195,7 +206,8 @@ export class DialogAdapter extends BaseAdapter {
       if (DocumentSaveResult.length === 0) {
         callback('', true);
       } else {
-        callback(DocumentSaveResult[0], false);
+        let filePaths = this.convertUrisToPaths(DocumentSaveResult);
+        callback(filePaths[0], false);
       }
     }).catch((err: BusinessError) => {
       LogUtil.error(TAG, 'DocumentViewPicker.save failed with err: ' + JSON.stringify(err));
@@ -240,6 +252,20 @@ export class DialogAdapter extends BaseAdapter {
       copy.push(filter.name + "(*." + filter.extensions.join(";*.") + ")|." + filter.extensions.join(",."));
     }
     return copy;
+  }
+
+  private convertUrisToPaths(uris: string[]): string[] {
+    let filePaths: string[] = [];
+    uris.forEach((uri) => {
+      try {
+        let uriObj = new fileUri.FileUri(uri);
+        filePaths.push(uriObj.path);
+      } catch (err) {
+        LogUtil.error(TAG, `convertUrisToPaths failed for uri ${uri}: ${JSON.stringify(err)}`);
+        filePaths.push(uri);
+      }
+    });
+    return filePaths;
   }
 
   private convertImagePixelMap(width: number, height: number, buff: ArrayBuffer): image.PixelMap | undefined {
