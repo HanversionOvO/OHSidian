@@ -1,0 +1,15 @@
+{
+	"name": "obsidian",
+	"description": "Obsidian",
+	"version": "1.12.7",
+	"homepage": "https://obsidian.md",
+	"license": "UNLICENSED",
+	"author": "Obsidian",
+	"private": true,
+	"main": "main.js",
+	"dependencies": {
+		"@electron/remote": "2.1.3",
+		"btime": "../btime",
+		"get-fonts": "../get-fonts"
+	}
+}

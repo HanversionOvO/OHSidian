@@ -1,0 +1,826 @@
+{
+    "style_font": [
+        {
+            "DejaVu Math TeX Gyre": "DejaVuMathTeXGyre.ttf"
+        },
+        {
+            "FTSymbol": "FTSymbol.ttf"
+        },
+        {
+            "FTToken": "FTToken.ttf"
+        },
+        {
+            "FTToken2": "FTToken2.ttf"
+        },
+        {
+            "FTToken3": "FTToken3.ttf"
+        },
+        {
+            "FTTokens": "FTTokens.ttf"
+        },
+        {
+            "方正仿宋-简": "FZFangS-SC.ttf"
+        },
+        {
+            "FZFangS-SC": "FZFangS-SC.ttf"
+        },
+        {
+            "方正仿宋-繁": "FZFangS-TC.ttf"
+        },
+        {
+            "FZFangS-TC": "FZFangS-TC.ttf"
+        },
+        {
+            "FZHeiT-SC Bold": "FZHeiT-SC-Bold.ttf"
+        },
+        {
+            "方正圆体-简 Bold": "FZYuanT-SC-Bold.ttf"
+        },
+        {
+            "FZHeiT-SC Light": "FZHeiT-SC-Light.ttf"
+        },
+        {
+            "方正圆体-简 Light": "FZYuanT-SC-Light.ttf"
+        },
+        {
+            "FZHeiT-SC": "FZHeiT-SC-Regular.ttf"
+        },
+        {
+            "方正圆体-简": "FZYuanT-SC-Regular.ttf"
+        },
+        {
+            "FZHeiT-TC Bold": "FZHeiT-TC-Bold.ttf"
+        },
+        {
+            "方正黑體-繁 Bold": "FZHeiT-TC-Bold.ttf"
+        },
+        {
+            "FZHeiT-TC Light": "FZHeiT-TC-Light.ttf"
+        },
+        {
+            "方正黑體-繁 Light": "FZHeiT-TC-Light.ttf"
+        },
+        {
+            "FZHeiT-TC": "FZHeiT-TC-Regular.ttf"
+        },
+        {
+            "方正黑體-繁": "FZHeiT-TC-Regular.ttf"
+        },
+        {
+            "方正楷体-简": "FZKaiT-SC.ttf"
+        },
+        {
+            "FZKaiT-SC": "FZKaiT-SC.ttf"
+        },
+        {
+            "方正楷體-繁": "FZKaiT-TC.ttf"
+        },
+        {
+            "FZKaiT-TC": "FZKaiT-TC.ttf"
+        },
+        {
+            "方正隶体-简": "FZLiT-SC.ttf"
+        },
+        {
+            "FZLiT-SC": "FZLiT-SC.ttf"
+        },
+        {
+            "方正隸變-繁": "FZLiB-TC.ttf"
+        },
+        {
+            "FZLiB-TC": "FZLiB-TC.ttf"
+        },
+        {
+            "方正隶书-简": "FZLiS-SC.ttf"
+        },
+        {
+            "FZLiS-SC": "FZLiS-SC.ttf"
+        },
+        {
+            "方正隸書-繁": "FZLiS-TC.ttf"
+        },
+        {
+            "FZLiS-TC": "FZLiS-TC.ttf"
+        },
+        {
+            "方正喵呜-简": "FZMiaoW-SC.ttf"
+        },
+        {
+            "FZMiaoW-SC": "FZMiaoW-SC.ttf"
+        },
+        {
+            "方正喵體-繁": "FZMiaoT-TC.ttf"
+        },
+        {
+            "FZMiaoT-TC": "FZMiaoT-TC.ttf"
+        },
+        {
+            "方正手书-简": "FZShouS-SC.ttf"
+        },
+        {
+            "FZShouS-SC": "FZShouS-SC.ttf"
+        },
+        {
+            "方正手書-繁": "FZShouS-TC.ttf"
+        },
+        {
+            "FZShouS-TC": "FZShouS-TC.ttf"
+        },
+        {
+            "方正书宋-简": "FZShuS-SC.ttf"
+        },
+        {
+            "FZShuS-SC": "FZShuS-SC.ttf"
+        },
+        {
+            "方正書宋-繁": "FZShuS-TC.ttf"
+        },
+        {
+            "FZShuS-TC": "FZShuS-TC.ttf"
+        },
+        {
+            "方正小标宋-简": "FZXiaoBS-SC.ttf"
+        },
+        {
+            "FZXiaoBS-SC": "FZXiaoBS-SC.ttf"
+        },
+        {
+            "方正小標宋-繁": "FZXiaoBS-TC.ttf"
+        },
+        {
+            "FZXiaoBS-TC": "FZXiaoBS-TC.ttf"
+        },
+        {
+            "方正行楷-简": "FZXingK-SC.ttf"
+        },
+        {
+            "FZXingK-SC": "FZXingK-SC.ttf"
+        },
+        {
+            "方正行楷-繁": "FZXingK-TC.ttf"
+        },
+        {
+            "FZXingK-TC": "FZXingK-TC.ttf"
+        },
+        {
+            "FZYuanT-SC Bold": "FZYuanT-SC-Bold.ttf"
+        },
+        {
+            "FZYuanT-SC Light": "FZYuanT-SC-Light.ttf"
+        },
+        {
+            "FZYuanT-SC": "FZYuanT-SC-Regular.ttf"
+        },
+        {
+            "FZYuanT-TC Bold": "FZYuanT-TC-Bold.ttf"
+        },
+        {
+            "方正圓體-繁 Bold": "FZYuanT-TC-Bold.ttf"
+        },
+        {
+            "FZYuanT-TC Light": "FZYuanT-TC-Light.ttf"
+        },
+        {
+            "方正圓體-繁 Light": "FZYuanT-TC-Light.ttf"
+        },
+        {
+            "FZYuanT-TC": "FZYuanT-TC-Regular.ttf"
+        },
+        {
+            "方正圓體-繁": "FZYuanT-TC-Regular.ttf"
+        },
+        {
+            "HMOS Color Emoji": "HMOSColorEmojiCompat.ttf"
+        },
+        {
+            "HMOS Color Emoji Flags": "HMOSColorEmojiFlags.ttf"
+        },
+        {
+            "HM Symbol": "HMSymbolVF.ttf"
+        },
+        {
+            "HarmonyOS Sans": "HarmonyOS_Sans.ttf"
+        },
+        {
+            "HarmonyOS Sans Condensed": "HarmonyOS_Sans_Condensed.ttf"
+        },
+        {
+            "HarmonyOS Sans Condensed Italic": "HarmonyOS_Sans_Condensed_Italic.ttf"
+        },
+        {
+            "HarmonyOS Sans Digit": "HarmonyOS_Sans_Digit.ttf"
+        },
+        {
+            "HarmonyOS Sans Digit Medium": "HarmonyOS_Sans_Digit_Medium.ttf"
+        },
+        {
+            "HarmonyOS Sans Italic": "HarmonyOS_Sans_Italic.ttf"
+        },
+        {
+            "HarmonyOS Sans Naskh Arabic": "HarmonyOS_Sans_Naskh_Arabic.ttf"
+        },
+        {
+            "HarmonyOS Sans Naskh Arabic UI": "HarmonyOS_Sans_Naskh_Arabic_UI.ttf"
+        },
+        {
+            "HarmonyOS Sans SC": "HarmonyOS_Sans_SC.ttf"
+        },
+        {
+            "HarmonyOS Sans TC": "HarmonyOS_Sans_TC.ttf"
+        },
+        {
+            "Noto Sans Adlam": "NotoSansAdlam[wght].ttf"
+        },
+        {
+            "Noto Sans Anatolian Hieroglyphs": "NotoSansAnatolianHieroglyphs-Regular.ttf"
+        },
+        {
+            "Noto Sans Armenian": "NotoSansArmenian[wdth,wght].ttf"
+        },
+        {
+            "Noto Sans Avestan": "NotoSansAvestan-Regular.ttf"
+        },
+        {
+            "Noto Sans Balinese": "NotoSansBalinese[wght].ttf"
+        },
+        {
+            "Noto Sans Bamum": "NotoSansBamum[wght].ttf"
+        },
+        {
+            "Noto Sans Bassa Vah": "NotoSansBassaVah[wght].ttf"
+        },
+        {
+            "Noto Sans Batak": "NotoSansBatak-Regular.ttf"
+        },
+        {
+            "Noto Sans Bengali UI Bold": "NotoSansBengaliUI-Bold.ttf"
+        },
+        {
+            "Noto Sans Bengali UI Medium": "NotoSansBengaliUI-Medium.ttf"
+        },
+        {
+            "Noto Sans Bengali UI": "NotoSansBengaliUI-Regular.ttf"
+        },
+        {
+            "Noto Sans Bengali UI SemiBold": "NotoSansBengaliUI-SemiBold.ttf"
+        },
+        {
+            "Noto Sans Bengali": "NotoSansBengali[wdth,wght].ttf"
+        },
+        {
+            "Noto Sans Bhaiksuki": "NotoSansBhaiksuki-Regular.ttf"
+        },
+        {
+            "Noto Sans Brahmi": "NotoSansBrahmi-Regular.ttf"
+        },
+        {
+            "Noto Sans Buginese": "NotoSansBuginese-Regular.ttf"
+        },
+        {
+            "Noto Sans Buhid": "NotoSansBuhid-Regular.ttf"
+        },
+        {
+            "Noto Sans CJK JP": "NotoSansCJK-Regular.ttc"
+        },
+        {
+            "Noto Sans CJK KR": "NotoSansCJK-Regular.ttc"
+        },
+        {
+            "Noto Sans CJK SC": "NotoSansCJK-Regular.ttc"
+        },
+        {
+            "Noto Sans CJK TC": "NotoSansCJK-Regular.ttc"
+        },
+        {
+            "Noto Sans CJK HK": "NotoSansCJK-Regular.ttc"
+        },
+        {
+            "Noto Sans Canadian Aboriginal": "NotoSansCanadianAboriginal[wght].ttf"
+        },
+        {
+            "Noto Sans Carian": "NotoSansCarian-Regular.ttf"
+        },
+        {
+            "Noto Sans Chakma": "NotoSansChakma-Regular.ttf"
+        },
+        {
+            "Noto Sans Cham": "NotoSansCham[wght].ttf"
+        },
+        {
+            "Noto Sans Cherokee": "NotoSansCherokee[wght].ttf"
+        },
+        {
+            "Noto Sans Coptic": "NotoSansCoptic-Regular.ttf"
+        },
+        {
+            "Noto Sans Cuneiform": "NotoSansCuneiform-Regular.ttf"
+        },
+        {
+            "Noto Sans Cypriot": "NotoSansCypriot-Regular.ttf"
+        },
+        {
+            "Noto Sans Deseret": "NotoSansDeseret-Regular.ttf"
+        },
+        {
+            "Noto Sans Devanagari UI Bold": "NotoSansDevanagariUI-Bold.ttf"
+        },
+        {
+            "Noto Sans Devanagari UI Medium": "NotoSansDevanagariUI-Medium.ttf"
+        },
+        {
+            "Noto Sans Devanagari UI": "NotoSansDevanagariUI-Regular.ttf"
+        },
+        {
+            "Noto Sans Devanagari UI SemiBold": "NotoSansDevanagariUI-SemiBold.ttf"
+        },
+        {
+            "Noto Sans Devanagari": "NotoSansDevanagari[wdth,wght].ttf"
+        },
+        {
+            "Noto Sans Egyptian Hieroglyphs": "NotoSansEgyptianHieroglyphs-Regular.ttf"
+        },
+        {
+            "Noto Sans Elbasan": "NotoSansElbasan-Regular.ttf"
+        },
+        {
+            "Noto Sans Ethiopic": "NotoSansEthiopic[wdth,wght].ttf"
+        },
+        {
+            "Noto Sans Georgian": "NotoSansGeorgian[wdth,wght].ttf"
+        },
+        {
+            "Noto Sans Glagolitic": "NotoSansGlagolitic-Regular.ttf"
+        },
+        {
+            "Noto Sans Gothic": "NotoSansGothic-Regular.ttf"
+        },
+        {
+            "Noto Sans Grantha": "NotoSansGrantha-Regular.ttf"
+        },
+        {
+            "Noto Sans Gujarati UI Bold": "NotoSansGujaratiUI-Bold.ttf"
+        },
+        {
+            "Noto Sans Gujarati UI": "NotoSansGujaratiUI-Regular.ttf"
+        },
+        {
+            "Noto Sans Gujarati": "NotoSansGujarati[wdth,wght].ttf"
+        },
+        {
+            "Noto Sans Gunjala Gondi": "NotoSansGunjalaGondi[wght].ttf"
+        },
+        {
+            "Noto Sans Gurmukhi UI Bold": "NotoSansGurmukhiUI-Bold.ttf"
+        },
+        {
+            "Noto Sans Gurmukhi UI Medium": "NotoSansGurmukhiUI-Medium.ttf"
+        },
+        {
+            "Noto Sans Gurmukhi UI": "NotoSansGurmukhiUI-Regular.ttf"
+        },
+        {
+            "Noto Sans Gurmukhi UI SemiBold": "NotoSansGurmukhiUI-SemiBold.ttf"
+        },
+        {
+            "Noto Sans Gurmukhi": "NotoSansGurmukhi[wdth,wght].ttf"
+        },
+        {
+            "Noto Sans Hanifi Rohingya": "NotoSansHanifiRohingya[wght].ttf"
+        },
+        {
+            "Noto Sans Hanunoo": "NotoSansHanunoo-Regular.ttf"
+        },
+        {
+            "Noto Sans Hatran": "NotoSansHatran-Regular.ttf"
+        },
+        {
+            "Noto Sans Hebrew": "NotoSansHebrew[wdth,wght].ttf"
+        },
+        {
+            "Noto Sans Imperial Aramaic": "NotoSansImperialAramaic-Regular.ttf"
+        },
+        {
+            "Noto Sans Inscriptional Pahlavi": "NotoSansInscriptionalPahlavi-Regular.ttf"
+        },
+        {
+            "Noto Sans Inscriptional Parthian": "NotoSansInscriptionalParthian-Regular.ttf"
+        },
+        {
+            "Noto Sans Javanese": "NotoSansJavanese[wght].ttf"
+        },
+        {
+            "Noto Sans Kaithi": "NotoSansKaithi-Regular.ttf"
+        },
+        {
+            "Noto Sans Kannada UI Bold": "NotoSansKannadaUI-Bold.ttf"
+        },
+        {
+            "Noto Sans Kannada UI Medium": "NotoSansKannadaUI-Medium.ttf"
+        },
+        {
+            "Noto Sans Kannada UI": "NotoSansKannadaUI-Regular.ttf"
+        },
+        {
+            "Noto Sans Kannada UI SemiBold": "NotoSansKannadaUI-SemiBold.ttf"
+        },
+        {
+            "Noto Sans Kannada": "NotoSansKannada[wdth,wght].ttf"
+        },
+        {
+            "Noto Sans Kayah Li": "NotoSansKayahLi[wght].ttf"
+        },
+        {
+            "Noto Sans Kharoshthi": "NotoSansKharoshthi-Regular.ttf"
+        },
+        {
+            "Noto Sans Khmer": "NotoSansKhmer[wdth,wght].ttf"
+        },
+        {
+            "Noto Sans Khojki": "NotoSansKhojki-Regular.ttf"
+        },
+        {
+            "Noto Sans Lao": "NotoSansLao[wdth,wght].ttf"
+        },
+        {
+            "Noto Sans Lepcha": "NotoSansLepcha-Regular.ttf"
+        },
+        {
+            "Noto Sans Limbu": "NotoSansLimbu-Regular.ttf"
+        },
+        {
+            "Noto Sans Linear A": "NotoSansLinearA-Regular.ttf"
+        },
+        {
+            "Noto Sans Linear B": "NotoSansLinearB-Regular.ttf"
+        },
+        {
+            "Noto Sans Lisu": "NotoSansLisu[wght].ttf"
+        },
+        {
+            "Noto Sans Lycian": "NotoSansLycian-Regular.ttf"
+        },
+        {
+            "Noto Sans Lydian": "NotoSansLydian-Regular.ttf"
+        },
+        {
+            "Noto Sans Malayalam UI Bold": "NotoSansMalayalamUI-Bold.ttf"
+        },
+        {
+            "Noto Sans Malayalam UI Medium": "NotoSansMalayalamUI-Medium.ttf"
+        },
+        {
+            "Noto Sans Malayalam UI": "NotoSansMalayalamUI-Regular.ttf"
+        },
+        {
+            "Noto Sans Malayalam UI SemiBold": "NotoSansMalayalamUI-SemiBold.ttf"
+        },
+        {
+            "Noto Sans Malayalam": "NotoSansMalayalam[wdth,wght].ttf"
+        },
+        {
+            "Noto Sans Mandaic": "NotoSansMandaic-Regular.ttf"
+        },
+        {
+            "Noto Sans Manichaean": "NotoSansManichaean-Regular.ttf"
+        },
+        {
+            "Noto Sans Marchen": "NotoSansMarchen-Regular.ttf"
+        },
+        {
+            "Noto Sans Masaram Gondi": "NotoSansMasaramGondi-Regular.ttf"
+        },
+        {
+            "Noto Sans Medefaidrin": "NotoSansMedefaidrin[wght].ttf"
+        },
+        {
+            "Noto Sans Meetei Mayek": "NotoSansMeeteiMayek[wght].ttf"
+        },
+        {
+            "Noto Sans Meroitic": "NotoSansMeroitic-Regular.ttf"
+        },
+        {
+            "Noto Sans Miao": "NotoSansMiao-Regular.ttf"
+        },
+        {
+            "Noto Sans Modi": "NotoSansModi-Regular.ttf"
+        },
+        {
+            "Noto Sans Mongolian": "NotoSansMongolian-Regular.ttf"
+        },
+        {
+            "Noto Sans Mono": "NotoSansMono[wdth,wght].ttf"
+        },
+        {
+            "Noto Sans Mro": "NotoSansMro-Regular.ttf"
+        },
+        {
+            "Noto Sans Multani": "NotoSansMultani-Regular.ttf"
+        },
+        {
+            "Noto Sans Myanmar": "NotoSansMyanmar[wdth,wght].ttf"
+        },
+        {
+            "Noto Sans NKo": "NotoSansNKo-Regular.ttf"
+        },
+        {
+            "Noto Sans Nabataean": "NotoSansNabataean-Regular.ttf"
+        },
+        {
+            "Noto Sans New Tai Lue": "NotoSansNewTaiLue[wght].ttf"
+        },
+        {
+            "Noto Sans Newa": "NotoSansNewa-Regular.ttf"
+        },
+        {
+            "Noto Sans Ogham": "NotoSansOgham-Regular.ttf"
+        },
+        {
+            "Noto Sans Ol Chiki": "NotoSansOlChiki[wght].ttf"
+        },
+        {
+            "Noto Sans Old Italic": "NotoSansOldItalic-Regular.ttf"
+        },
+        {
+            "Noto Sans Old North Arabian": "NotoSansOldNorthArabian-Regular.ttf"
+        },
+        {
+            "Noto Sans Old Permic": "NotoSansOldPermic-Regular.ttf"
+        },
+        {
+            "Noto Sans Old Persian": "NotoSansOldPersian-Regular.ttf"
+        },
+        {
+            "Noto Sans Old South Arabian": "NotoSansOldSouthArabian-Regular.ttf"
+        },
+        {
+            "Noto Sans Old Turkic": "NotoSansOldTurkic-Regular.ttf"
+        },
+        {
+            "Noto Sans Oriya": "NotoSansOriya[wdth,wght].ttf"
+        },
+        {
+            "Noto Sans Osage": "NotoSansOsage-Regular.ttf"
+        },
+        {
+            "Noto Sans Osmanya": "NotoSansOsmanya-Regular.ttf"
+        },
+        {
+            "Noto Sans Pahawh Hmong": "NotoSansPahawhHmong-Regular.ttf"
+        },
+        {
+            "Noto Sans Palmyrene": "NotoSansPalmyrene-Regular.ttf"
+        },
+        {
+            "Noto Sans Pau Cin Hau": "NotoSansPauCinHau-Regular.ttf"
+        },
+        {
+            "Noto Sans Phags-Pa": "NotoSansPhags-Pa-Regular.ttf"
+        },
+        {
+            "Noto Sans Phoenician": "NotoSansPhoenician-Regular.ttf"
+        },
+        {
+            "Noto Sans Rejang": "NotoSansRejang-Regular.ttf"
+        },
+        {
+            "Noto Sans Runic": "NotoSansRunic-Regular.ttf"
+        },
+        {
+            "Noto Sans Samaritan": "NotoSansSamaritan-Regular.ttf"
+        },
+        {
+            "Noto Sans Saurashtra": "NotoSansSaurashtra-Regular.ttf"
+        },
+        {
+            "Noto Sans Sharada": "NotoSansSharada-Regular.ttf"
+        },
+        {
+            "Noto Sans Shavian": "NotoSansShavian-Regular.ttf"
+        },
+        {
+            "Noto Sans Sinhala UI Bold": "NotoSansSinhalaUI-Bold.ttf"
+        },
+        {
+            "Noto Sans Sinhala UI Medium": "NotoSansSinhalaUI-Medium.ttf"
+        },
+        {
+            "Noto Sans Sinhala UI": "NotoSansSinhalaUI-Regular.ttf"
+        },
+        {
+            "Noto Sans Sinhala UI SemiBold": "NotoSansSinhalaUI-SemiBold.ttf"
+        },
+        {
+            "Noto Sans Sinhala": "NotoSansSinhala[wdth,wght].ttf"
+        },
+        {
+            "Noto Sans Sora Sompeng": "NotoSansSoraSompeng[wght].ttf"
+        },
+        {
+            "Noto Sans Soyombo": "NotoSansSoyombo-Regular.ttf"
+        },
+        {
+            "Noto Sans Sundanese": "NotoSansSundanese[wght].ttf"
+        },
+        {
+            "Noto Sans Syloti Nagri": "NotoSansSylotiNagri-Regular.ttf"
+        },
+        {
+            "Noto Sans Symbols": "NotoSansSymbols-Regular.ttf"
+        },
+        {
+            "Noto Sans Symbols 2": "NotoSansSymbols2-Regular.ttf"
+        },
+        {
+            "Noto Sans Syriac Eastern": "NotoSansSyriacEastern[wght].ttf"
+        },
+        {
+            "Noto Sans Syriac Western": "NotoSansSyriacWestern[wght].ttf"
+        },
+        {
+            "Noto Sans Tagalog": "NotoSansTagalog-Regular.ttf"
+        },
+        {
+            "Noto Sans Tagbanwa": "NotoSansTagbanwa-Regular.ttf"
+        },
+        {
+            "Noto Sans Tai Le": "NotoSansTaiLe-Regular.ttf"
+        },
+        {
+            "Noto Sans Tai Tham": "NotoSansTaiTham[wght].ttf"
+        },
+        {
+            "Noto Sans Tai Viet": "NotoSansTaiViet-Regular.ttf"
+        },
+        {
+            "Noto Sans Takri": "NotoSansTakri-Regular.ttf"
+        },
+        {
+            "Noto Sans Tamil UI Bold": "NotoSansTamilUI-Bold.ttf"
+        },
+        {
+            "Noto Sans Tamil UI Medium": "NotoSansTamilUI-Medium.ttf"
+        },
+        {
+            "Noto Sans Tamil UI": "NotoSansTamilUI-Regular.ttf"
+        },
+        {
+            "Noto Sans Tamil UI SemiBold": "NotoSansTamilUI-SemiBold.ttf"
+        },
+        {
+            "Noto Sans Tamil": "NotoSansTamil[wdth,wght].ttf"
+        },
+        {
+            "Noto Sans Telugu UI Bold": "NotoSansTeluguUI-Bold.ttf"
+        },
+        {
+            "Noto Sans Telugu UI Medium": "NotoSansTeluguUI-Medium.ttf"
+        },
+        {
+            "Noto Sans Telugu UI": "NotoSansTeluguUI-Regular.ttf"
+        },
+        {
+            "Noto Sans Telugu UI SemiBold": "NotoSansTeluguUI-SemiBold.ttf"
+        },
+        {
+            "Noto Sans Telugu": "NotoSansTelugu[wdth,wght].ttf"
+        },
+        {
+            "Noto Sans Thaana": "NotoSansThaana[wght].ttf"
+        },
+        {
+            "Noto Sans Thai": "NotoSansThai[wdth,wght].ttf"
+        },
+        {
+            "Noto Sans Tifinagh": "NotoSansTifinagh-Regular.ttf"
+        },
+        {
+            "Noto Sans Ugaritic": "NotoSansUgaritic-Regular.ttf"
+        },
+        {
+            "Noto Sans Vai": "NotoSansVai-Regular.ttf"
+        },
+        {
+            "Noto Sans Wancho": "NotoSansWancho-Regular.ttf"
+        },
+        {
+            "Noto Sans Warang Citi": "NotoSansWarangCiti-Regular.ttf"
+        },
+        {
+            "Noto Sans Yi": "NotoSansYi-Regular.ttf"
+        },
+        {
+            "Noto Sans": "NotoSans[wdth,wght].ttf"
+        },
+        {
+            "Noto Serif Ahom": "NotoSerifAhom-Regular.ttf"
+        },
+        {
+            "Noto Serif Armenian": "NotoSerifArmenian[wdth,wght].ttf"
+        },
+        {
+            "Noto Serif Bengali": "NotoSerifBengali[wdth,wght].ttf"
+        },
+        {
+            "Noto Serif CJK JP": "NotoSerifCJK-Regular.ttc"
+        },
+        {
+            "Noto Serif CJK KR": "NotoSerifCJK-Regular.ttc"
+        },
+        {
+            "Noto Serif CJK SC": "NotoSerifCJK-Regular.ttc"
+        },
+        {
+            "Noto Serif CJK TC": "NotoSerifCJK-Regular.ttc"
+        },
+        {
+            "Noto Serif CJK HK": "NotoSerifCJK-Regular.ttc"
+        },
+        {
+            "Noto Serif Devanagari": "NotoSerifDevanagari[wdth,wght].ttf"
+        },
+        {
+            "Noto Serif Dogra": "NotoSerifDogra-Regular.ttf"
+        },
+        {
+            "Noto Serif Ethiopic": "NotoSerifEthiopic[wdth,wght].ttf"
+        },
+        {
+            "Noto Serif Georgian": "NotoSerifGeorgian[wdth,wght].ttf"
+        },
+        {
+            "Noto Serif Gujarati": "NotoSerifGujarati[wght].ttf"
+        },
+        {
+            "Noto Serif Gurmukhi": "NotoSerifGurmukhi[wght].ttf"
+        },
+        {
+            "Noto Serif Hebrew": "NotoSerifHebrew[wdth,wght].ttf"
+        },
+        {
+            "Noto Serif Kannada": "NotoSerifKannada[wght].ttf"
+        },
+        {
+            "Noto Serif Khmer": "NotoSerifKhmer[wdth,wght].ttf"
+        },
+        {
+            "Noto Serif Lao": "NotoSerifLao[wdth,wght].ttf"
+        },
+        {
+            "Noto Serif Malayalam": "NotoSerifMalayalam[wght].ttf"
+        },
+        {
+            "Noto Serif Myanmar": "NotoSerifMyanmar[wdth,wght].ttf"
+        },
+        {
+            "Noto Serif Sinhala": "NotoSerifSinhala[wdth,wght].ttf"
+        },
+        {
+            "Noto Serif Tamil": "NotoSerifTamil[wdth,wght].ttf"
+        },
+        {
+            "Noto Serif Telugu": "NotoSerifTelugu[wght].ttf"
+        },
+        {
+            "Noto Serif Thai": "NotoSerifThai[wdth,wght].ttf"
+        },
+        {
+            "Noto Serif Tibetan": "NotoSerifTibetan[wght].ttf"
+        },
+        {
+            "Noto Serif Yezidi": "NotoSerifYezidi[wght].ttf"
+        },
+        {
+            "Noto Serif": "NotoSerif[wdth,wght].ttf"
+        },
+        {
+            "Noto Sans": "Roboto-Regular.ttf"
+        },
+        {
+            "Noto Sans Math": "NotoSansMath-Regular.ttf"
+        },
+        {
+            "FangS-SC": "FangS-SC.ttf"
+        },
+        {
+            "仿宋-简": "FangS-SC.ttf"
+        },
+        {
+            "FT Thymes": "FTThymes-Regular.ttf"
+        },
+        {
+            "HeiT-SC": "HeiT-SC-Regular.ttf"
+        },
+        {
+            "ShuS-SC ": "ShuS-SC.ttf"
+        },
+        {
+            "书宋-简": "ShuS-SC.ttf"
+        },
+        {
+            "KaiT-SC": "KaiT-SC.ttf"
+        },
+        {
+            "楷体-简": "KaiT-SC.ttf"
+        }
+    ]
+}

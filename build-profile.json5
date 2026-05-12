@@ -1,0 +1,60 @@
+{
+  "app": {
+    "signingConfigs": [
+      {
+        "name": "default",
+        "type": "HarmonyOS",
+        "material": {
+          "certpath": "C:\\Users\\hanve\\.ohos\\config\\default_obsidian-electron-hap-work_BKkNOjWyyg5f10rbwD_QUHsg952dn6D_l8OR28p59js=.cer",
+          "keyAlias": "debugKey",
+          "keyPassword": "0000001B3ABDB14C8233388ECF40A5B2559DB3137CD40A05D4F0B230FBF8A4D79A8BA859B5937F7D360BE9",
+          "profile": "C:\\Users\\hanve\\.ohos\\config\\default_obsidian-electron-hap-work_BKkNOjWyyg5f10rbwD_QUHsg952dn6D_l8OR28p59js=.p7b",
+          "signAlg": "SHA256withECDSA",
+          "storeFile": "C:\\Users\\hanve\\.ohos\\config\\default_obsidian-electron-hap-work_BKkNOjWyyg5f10rbwD_QUHsg952dn6D_l8OR28p59js=.p12",
+          "storePassword": "0000001B34D3CDDA0A626B105F028ADAFA5278D06A37202737BC246A59B205F38138718943BBD8CEB4E631"
+        }
+      }
+    ],
+    "products": [
+      {
+        "name": "default",
+        "signingConfig": "default",
+        "compatibleSdkVersion": "6.0.2(22)",
+        "targetSdkVersion": "6.0.2(22)",
+        "runtimeOS": "HarmonyOS",
+        "buildOption": {
+          "nativeLib": {
+            "collectAllLibs": true
+          }
+        }
+      }
+    ],
+    "buildModeSet": [
+      {
+        "name": "debug",
+      },
+      {
+        "name": "release"
+      }
+    ]
+  },
+  "modules": [
+    {
+      "name": "electron",
+      "srcPath": "./electron",
+      "targets": [
+        {
+          "name": "default",
+          "applyToProducts": [
+            "default"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "web_engine",
+      "srcPath": "./web_engine"
+    }
+  ]
+}
+
