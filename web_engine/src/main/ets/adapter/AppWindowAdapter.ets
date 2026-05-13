@@ -490,7 +490,11 @@ export class AppWindowAdapter extends BaseAdapter {
         preferences.hideTitleBar = !useNativeFrame;
         proxy?.setWindowPreferences(preferences);
       }
-      this.showWindowTitleButtons(id);
+      if (useNativeFrame) {
+        this.showWindowTitleButtons(id);
+      } else {
+        this.applyWindowTitleButtonVisible(id);
+      }
     } catch (exception) {
       LogUtil.error(TAG, `Failed to set the visibility of window decor. Cause code: ${exception.code}, message: ${exception.message}`);
     }
