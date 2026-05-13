@@ -62,6 +62,7 @@ import { SpeechAdapterBind } from '../jsbindings/SpeechAdapterBind';
 import { SubWindowAdapterBind } from '../jsbindings/SubWindowAdapterBind';
 import { SystemFloatingWindowAdapterBind } from './SystemFloatingWindowAdapterBind';
 import { StatusBarManagerAdapterBind } from './StatusBarManagerAdapterBind';
+import { TrashAdapterBind } from './TrashAdapterBind';
 
 export class JsBindingMethod {
   static bind() {
@@ -100,5 +101,6 @@ export class JsBindingMethod {
     StatusBarManagerAdapterBind.bind();
     SubWindowAdapterBind.bind();
     SystemFloatingWindowAdapterBind.bind();
+    TrashAdapterBind.bind();
   }
 }

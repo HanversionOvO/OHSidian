@@ -65,6 +65,151 @@ if (hmosCompatEnabled) {
 	console.error('[HMOS-COMPAT] failed to prepare compatibility test', e);
 }
 
+function itemExists(filePath) {
+	try {
+		fs.accessSync(filePath);
+		return true;
+	} catch (e) {
+		return false;
+	}
+}
+
+function normalizeForPrefix(filePath) {
+	return path.resolve(filePath).replace(/\\/g, '/');
+}
+
+function getVaultTrashDir(targetPath) {
+	try {
+		let obsidianConfigPath = path.join(dataPath, 'obsidian.json');
+		if (fs.existsSync(obsidianConfigPath)) {
+			let obsidianConfig = JSON.parse(fs.readFileSync(obsidianConfigPath, 'utf8'));
+			let vaults = obsidianConfig && obsidianConfig.vaults;
+			if (vaults) {
+				let normalizedTarget = normalizeForPrefix(targetPath);
+				let matchedVaultPath = null;
+				for (let id of Object.keys(vaults)) {
+					let vaultPath = vaults[id] && vaults[id].path;
+					if (!vaultPath || !fs.existsSync(vaultPath)) continue;
+					let normalizedVault = normalizeForPrefix(vaultPath);
+					if (normalizedTarget === normalizedVault || normalizedTarget.startsWith(normalizedVault + '/')) {
+						if (!matchedVaultPath || normalizedVault.length > normalizeForPrefix(matchedVaultPath).length) {
+							matchedVaultPath = vaultPath;
+						}
+					}
+				}
+				if (matchedVaultPath) return path.join(matchedVaultPath, '.trash');
+			}
+		}
+		return getVaultTrashDirByFilesystem(targetPath);
+	} catch (e) {
+		console.error('[HMOS-TRASH] failed to resolve vault trash dir', e);
+		return getVaultTrashDirByFilesystem(targetPath);
+	}
+}
+
+function getVaultTrashDirByFilesystem(targetPath) {
+	try {
+		let dir = fs.statSync(targetPath).isDirectory() ? targetPath : path.dirname(targetPath);
+		while (dir && path.dirname(dir) !== dir) {
+			if (fs.existsSync(path.join(dir, '.obsidian'))) {
+				return path.join(dir, '.trash');
+			}
+			dir = path.dirname(dir);
+		}
+	} catch (e) {
+	}
+	return path.join(path.dirname(targetPath), '.trash');
+}
+
+function moveToVaultTrash(targetPath) {
+	let trashDir = getVaultTrashDir(targetPath);
+	if (!trashDir) return false;
+	fs.mkdirSync(trashDir, {recursive: true});
+	let parsed = path.parse(targetPath);
+	let targetName = parsed.base;
+	let trashPath = path.join(trashDir, targetName);
+	if (fs.existsSync(trashPath)) {
+		trashPath = path.join(trashDir, parsed.name + '-' + Date.now() + parsed.ext);
+	}
+	fs.renameSync(targetPath, trashPath);
+	console.log('[HMOS-TRASH] moved to vault trash fallback', targetPath, '->', trashPath);
+	return true;
+}
+
+async function waitForMissing(filePath, timeoutMs) {
+	let deadline = Date.now() + timeoutMs;
+	while (Date.now() < deadline) {
+		if (!itemExists(filePath)) return true;
+		await new Promise((resolve) => setTimeout(resolve, 100));
+	}
+	return !itemExists(filePath);
+}
+
+function installHarmonyTrashCompat() {
+	if (!electron.shell || typeof electron.shell.trashItem !== 'function') return;
+	let nativeTrashItem = electron.shell.trashItem.bind(electron.shell);
+	electron.shell.trashItem = async function(targetPath) {
+		let existedBefore = itemExists(targetPath);
+		try {
+			let result = await nativeTrashItem(targetPath);
+			if (!existedBefore || await waitForMissing(targetPath, 3000)) {
+				console.log('[HMOS-TRASH] native trash succeeded', targetPath);
+				return result;
+			}
+			throw new Error('HarmonyOS native trash returned but the file still exists');
+		} catch (e) {
+			console.error('[HMOS-TRASH] native trash failed', e);
+			if (existedBefore && itemExists(targetPath) && moveToVaultTrash(targetPath)) {
+				return;
+			}
+			throw e;
+		}
+	};
+}
+
+installHarmonyTrashCompat();
+
+async function runHarmonyTrashSelfTest() {
+	let obsidianConfigPath = path.join(dataPath, 'obsidian.json');
+	let originalConfig = null;
+	try {
+		await app.whenReady();
+		let testRoot = path.join(dataPath, 'harmony-trash-self-test');
+		let testVault = path.join(testRoot, 'vault');
+		fs.mkdirSync(testVault, {recursive: true});
+		fs.mkdirSync(path.join(testVault, '.obsidian'), {recursive: true});
+		if (fs.existsSync(obsidianConfigPath)) {
+			originalConfig = fs.readFileSync(obsidianConfigPath, 'utf8');
+		}
+		let config = originalConfig ? JSON.parse(originalConfig) : {};
+		config.vaults = config.vaults || {};
+		config.vaults['hmos-trash-self-test'] = {path: testVault, ts: Date.now()};
+		fs.writeFileSync(obsidianConfigPath, JSON.stringify(config, null, 2), 'utf8');
+		let testFile = path.join(testVault, 'delete-me-' + Date.now() + '.md');
+		fs.writeFileSync(testFile, 'HarmonyOS trash self test', 'utf8');
+		await electron.shell.trashItem(testFile);
+		let removed = await waitForMissing(testFile, 3000);
+		console.log('[HMOS-TRASH-TEST]', removed ? 'pass' : 'fail', testFile);
+	} catch (e) {
+		console.error('[HMOS-TRASH-TEST] fail', e);
+	} finally {
+		try {
+			if (originalConfig === null) {
+				fs.rmSync(obsidianConfigPath, {force: true});
+			} else {
+				fs.writeFileSync(obsidianConfigPath, originalConfig, 'utf8');
+			}
+			fs.rmSync(path.join(dataPath, 'harmony-trash-self-test'), {recursive: true, force: true});
+		} catch (e) {
+			console.error('[HMOS-TRASH-TEST] cleanup failed', e);
+		}
+	}
+}
+
+if (fs.existsSync(path.join(APP_PATH, 'harmonyos-trash-test.enabled'))) {
+	runHarmonyTrashSelfTest();
+}
+
 function pad(number) {
 	if (number < 10) {
 		return '0' + number;

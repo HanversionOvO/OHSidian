@@ -27,27 +27,23 @@
  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-import { ContainerModule } from 'inversify';
-
-import lazy { ContextAdapter } from '../adapter/ContextAdapter';
-import lazy { ContextPathAdapter } from '../adapter/ContextPathAdapter';
-import lazy { DragDropAdapter } from '../adapter/DragDropAdapter';
-import lazy { MultiInputAdapter } from '../adapter/MultiInputAdapter';
-import lazy { NativeThemeAdapter } from '../adapter/NativeThemeAdapter';
-import lazy { PermissionManagerAdapter } from '../adapter/PermissionManagerAdapter';
-
-import lazy { DialogAdapter } from '../adapter/DialogAdapter';
+import JsBindingUtils from '../utils/JsBindingUtils';
+import Inject from '../common/InjectModule';
 import lazy { TrashAdapter } from '../adapter/TrashAdapter';
 
-// Only the adapters which used in WebAbility or WebWindow should be added here.
-export const adapterModule = new ContainerModule((bind) => {
-  bind(ContextAdapter).toSelf();
-  bind(ContextPathAdapter).toSelf();
-  bind(DragDropAdapter).toSelf();
-  bind(MultiInputAdapter).toSelf();
-  bind(NativeThemeAdapter).toSelf();
-  bind(PermissionManagerAdapter).toSelf();
+function implTrashAdapter(): TrashAdapter {
+  return Inject.getOrCreate(TrashAdapter);
+}
 
-  bind(DialogAdapter).toSelf();
-  bind(TrashAdapter).toSelf();
-});
+function trashItem(pathOrUri: string, callback?: (success: boolean) => void): Promise<boolean> {
+  return implTrashAdapter().trashItem(pathOrUri, callback);
+}
+
+export class TrashAdapterBind {
+  static bind() {
+    JsBindingUtils.bindFunction('TrashAdapter.TrashItem', trashItem);
+    // 原生层可能查找的备用名称
+    JsBindingUtils.bindFunction('Shell.TrashItem', trashItem);
+    JsBindingUtils.bindFunction('ShellAdapter.TrashItem', trashItem);
+  }
+}
