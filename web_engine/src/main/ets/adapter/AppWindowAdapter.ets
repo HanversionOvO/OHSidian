@@ -81,6 +81,27 @@ export class AppWindowAdapter extends BaseAdapter {
     return this.abilityManager.getProxy(id)?.getWindow();
   }
 
+  private applyWindowTitleButtonVisible(id: number) {
+    let proxy = this.abilityManager.getProxy(id);
+    let preferences: WindowPreferences | undefined = proxy?.getWindowPreferences();
+    if (!preferences) {
+      return;
+    }
+    proxy?.getWindow()?.setWindowTitleButtonVisible(preferences.maximizable, preferences.minimizable, preferences.closable);
+  }
+
+  private showWindowTitleButtons(id: number) {
+    let proxy = this.abilityManager.getProxy(id);
+    let preferences: WindowPreferences | undefined = proxy?.getWindowPreferences();
+    if (preferences) {
+      preferences.maximizable = true;
+      preferences.minimizable = true;
+      preferences.closable = true;
+      proxy?.setWindowPreferences(preferences);
+    }
+    proxy?.getWindow()?.setWindowTitleButtonVisible(true, true, true);
+  }
+
   @LogMethod
   createWindow(param: NewWindowParam) {
     let abilityName: string = "EntryAbility";
@@ -156,8 +177,7 @@ export class AppWindowAdapter extends BaseAdapter {
     if (preferences) {
       preferences.maximizable = maximizable;
       proxy?.setWindowPreferences(preferences);
-      if (!preferences.hideTitleBar)
-        proxy?.getWindow()?.setWindowTitleButtonVisible(preferences.maximizable, preferences.minimizable, preferences.closable);
+      this.applyWindowTitleButtonVisible(id);
     }
     let windowStage = proxy?.getWindowStage();
     if (!maximizable) {
@@ -174,8 +194,7 @@ export class AppWindowAdapter extends BaseAdapter {
     if (preferences) {
       preferences.minimizable = minimizable;
       proxy?.setWindowPreferences(preferences);
-      if (!preferences.hideTitleBar)
-        proxy?.getWindow()?.setWindowTitleButtonVisible(preferences.maximizable, preferences.minimizable, preferences.closable);
+      this.applyWindowTitleButtonVisible(id);
     }
   }
 
@@ -186,8 +205,7 @@ export class AppWindowAdapter extends BaseAdapter {
     if (preferences) {
       preferences.closable = closable;
       proxy?.setWindowPreferences(preferences);
-      if (!preferences.hideTitleBar)
-        proxy?.getWindow()?.setWindowTitleButtonVisible(preferences.maximizable, preferences.minimizable, preferences.closable);
+      this.applyWindowTitleButtonVisible(id);
     }
   }
 
@@ -200,7 +218,7 @@ export class AppWindowAdapter extends BaseAdapter {
       preferences.minimizable = visible;
       preferences.closable = visible;
       proxy?.setWindowPreferences(preferences);
-      proxy?.getWindow()?.setWindowTitleButtonVisible(preferences.maximizable, preferences.minimizable, preferences.closable);
+      this.applyWindowTitleButtonVisible(id);
     }
   }
 
@@ -462,10 +480,17 @@ export class AppWindowAdapter extends BaseAdapter {
 
   @LogMethod
   setUseNativeFrame(id: number, useNativeFrame: boolean) {
-    let windowClass = this.getWindow(id);
+    let proxy = this.abilityManager.getProxy(id);
+    let windowClass = proxy?.getWindow();
     try {
       windowClass?.setWindowDecorVisible(useNativeFrame);
       windowClass?.setWindowTitleMoveEnabled(useNativeFrame);
+      let preferences: WindowPreferences | undefined = proxy?.getWindowPreferences();
+      if (preferences) {
+        preferences.hideTitleBar = !useNativeFrame;
+        proxy?.setWindowPreferences(preferences);
+      }
+      this.showWindowTitleButtons(id);
     } catch (exception) {
       LogUtil.error(TAG, `Failed to set the visibility of window decor. Cause code: ${exception.code}, message: ${exception.message}`);
     }

@@ -176,9 +176,6 @@ export class WebAbility extends WebBaseAbility {
         window.setDecorButtonStyle(buttonStyle);
       }
       window.setWindowTitleMoveEnabled(!this.hideTitleBar);
-      this.maximizable = this.maximizable && !this.hideTitleBar;
-      this.minimizable = this.minimizable && !this.hideTitleBar;
-      this.closable = this.closable && !this.hideTitleBar;
       window.setWindowTitleButtonVisible(this.maximizable, this.minimizable, this.closable);
       window.setWindowTopmost(this.alwaysOntop);
       window.setResizeByDragEnabled(this.resizable);
