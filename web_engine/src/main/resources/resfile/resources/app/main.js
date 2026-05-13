@@ -42,28 +42,6 @@ let APP_PATH = (() => {
 let currentBaseVersion = require('./package.json').version || app.getVersion();
 let currentPackageVersion = currentBaseVersion;
 let dataPath = app.getPath('userData');
-let hmosCompat = null;
-let hmosCompatState = { vaultPath: null, configPath: null };
-let hmosCompatEnabled = fs.existsSync(path.join(APP_PATH, 'harmonyos-compat-test.enabled'));
-
-try {
-if (hmosCompatEnabled) {
-	hmosCompat = require('./harmonyos-compat-test');
-	hmosCompatState = hmosCompat.prepareVaultConfig({app, dataPath, log: console.log});
-} else {
-	let obsidianConfigPath = path.join(dataPath, 'obsidian.json');
-	if (fs.existsSync(obsidianConfigPath)) {
-		let obsidianConfig = JSON.parse(fs.readFileSync(obsidianConfigPath, 'utf8'));
-		if (obsidianConfig && obsidianConfig.vaults && obsidianConfig.vaults['hmos-compat']) {
-			delete obsidianConfig.vaults['hmos-compat'];
-			fs.writeFileSync(obsidianConfigPath, JSON.stringify(obsidianConfig, null, 2), 'utf8');
-			console.log('[HMOS-COMPAT] removed test vault config');
-		}
-	}
-}
-} catch (e) {
-	console.error('[HMOS-COMPAT] failed to prepare compatibility test', e);
-}
 
 function itemExists(filePath) {
 	try {
@@ -635,19 +613,6 @@ if (!success) {
 
 if (!success) {
 	log('Failed to load both app packages.');
-}
-
-if (success && hmosCompat) {
-	hmosCompat.run({
-		app,
-		electron,
-		appPath: APP_PATH,
-		dataPath,
-		log,
-		vaultPath: hmosCompatState.vaultPath
-	}).catch((error) => {
-		console.error('[HMOS-COMPAT] test runner failed', error);
-	});
 }
 
 queueUpdate();

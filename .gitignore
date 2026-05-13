@@ -1,6 +1,7 @@
 # IDE and Editor files
 .vscode/
 .idea/
+.claude/
 *.swp
 *.swo
 *~
@@ -20,6 +21,7 @@ dist/
 out/
 .output/
 node_modules/
+.codex-*
 
 # Logs
 *.log
@@ -28,6 +30,8 @@ logs/
 # Temporary files
 *.tmp
 *.temp
+*.new
+*.oldlocktest
 .cache/
 
 # HarmonyOS specific
