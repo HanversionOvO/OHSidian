@@ -41,6 +41,7 @@ import CheckEmptyUtils from '../utils/CheckEmptyUtils';
 import { WebBaseAbility } from './WebBaseAbility';
 import { WindowStyle, IStyleData, IUpdateStyle } from '../common/WindowStyle';
 import { CommandType } from '../common/Constants';
+import { CloudSyncAdapter } from '../adapter/CloudSyncAdapter';
 import { PermissionManagerAdapter } from '../adapter/PermissionManagerAdapter';
 import { ConfigurationConstant } from '@kit.AbilityKit';
 
@@ -64,6 +65,16 @@ export class WebAbility extends WebBaseAbility {
     this.nativeThemeAdapter = Inject.get(NativeThemeAdapter);
 
     Inject.get(PermissionManagerAdapter).initPermissions();
+
+    // Initialize cloud sync
+    try {
+      const cloudSync = Inject.getOrCreate(CloudSyncAdapter);
+      cloudSync.initCloudSync(this.context, (ret: boolean) => {
+        LogUtil.info(TAG, 'CloudSync init: ' + (ret ? 'success' : 'failed'));
+      });
+    } catch (e) {
+      LogUtil.warn(TAG, 'CloudSync not available: ' + e);
+    }
   }
 
   onWindowStageCreate(windowStage: window.WindowStage) {
