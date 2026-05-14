@@ -55,9 +55,9 @@ export class WebBaseAbility extends UIAbility implements WebProxy {
 
   // Electron
   protected electronRelaunchArgs: string[] = [];
-  protected minimizable: boolean = !this.hideTitleBar;
-  protected maximizable: boolean = !this.hideTitleBar;
-  protected closable: boolean = !this.hideTitleBar;
+  protected minimizable: boolean = true;
+  protected maximizable: boolean = true;
+  protected closable: boolean = true;
   protected alwaysOntop: boolean = false;
   protected resizable: boolean = true;
   protected isModal: boolean = false;
