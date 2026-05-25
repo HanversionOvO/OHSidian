@@ -1,0 +1,32 @@
+{
+  "agcgw": {
+    "url": "connect-drcn.dbankcloud.cn",
+    "backurl": "connect-drcn.hispace.hicloud.com"
+  },
+  "client": {
+    "cp_id": "YOUR_CP_ID",
+    "product_id": "YOUR_PRODUCT_ID",
+    "client_id": "YOUR_CLIENT_ID",
+    "client_secret": "YOUR_CLIENT_SECRET",
+    "project_id": "YOUR_PROJECT_ID",
+    "app_id": "YOUR_APP_ID",
+    "api_key": "YOUR_API_KEY",
+    "package_name": "com.yourname.obsidian"
+  },
+  "oauth_client": {
+    "client_id": "YOUR_CLIENT_ID",
+    "client_type": 30
+  },
+  "app_info": {
+    "app_id": "YOUR_APP_ID",
+    "package_name": "com.yourname.obsidian"
+  },
+  "service": {
+    "cloudstorage": {
+      "storage_url": "https://agc-storage-drcn.platform.dbankcloud.cn",
+      "default_storage": "YOUR_BUCKET_NAME"
+    }
+  },
+  "region": "CN",
+  "configuration_version": "3.0"
+}

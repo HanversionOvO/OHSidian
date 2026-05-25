@@ -47,3 +47,23 @@ coverage/
 .env.development.local
 .env.test.local
 .env.production.local
+
+# Huawei AGC credentials (contains API keys and client secrets)
+**/agconnect-services.json
+**/rawfile/agconnect-services.json
+
+# Build profile with signing credentials
+build-profile.json5
+
+# Obsidian ASAR archive (large binary, distribution-restricted)
+*.asar
+
+# Signing materials
+**/*.p12
+**/*.p7b
+**/*.cer
+**/*.keystore
+**/*.jks
+
+# Local properties
+local.properties

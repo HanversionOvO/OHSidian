@@ -71,6 +71,10 @@ export class WebAbility extends WebBaseAbility {
       const cloudSync = Inject.getOrCreate(CloudSyncAdapter);
       cloudSync.initCloudSync(this.context, (ret: boolean) => {
         LogUtil.info(TAG, 'CloudSync init: ' + (ret ? 'success' : 'failed'));
+        // Start polling for login triggers
+        setInterval((): void => {
+          cloudSync.checkLoginTrigger(this.context);
+        }, 3000);
       });
     } catch (e) {
       LogUtil.warn(TAG, 'CloudSync not available: ' + e);
