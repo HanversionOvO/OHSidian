@@ -1,0 +1,22 @@
+{
+  "name": "btime",
+  "version": "1.0.0",
+  "description": "Change the birth time (btime) of a file on Windows and MacOS.",
+  "main": "index.js",
+  "files": [
+    "binding.cc",
+    "binding.gyp",
+    "index.js"
+  ],
+  "keywords": [
+    "birth time",
+    "btime"
+  ],
+  "license": "UNLICENSED",
+  "scripts": {
+    "postinstall": "node-gyp clean"
+  },
+  "dependencies": {
+    "node-addon-api": "6.1.0"
+  }
+}

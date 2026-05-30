@@ -23,6 +23,10 @@ out/
 node_modules/
 .codex-*
 
+# Runtime dependencies vendored into HarmonyOS package resources
+!web_engine/src/main/resources/resfile/resources/app/node_modules/
+!web_engine/src/main/resources/resfile/resources/app/node_modules/**
+
 # Logs
 *.log
 logs/
@@ -57,6 +61,7 @@ build-profile.json5
 
 # Obsidian ASAR archive (large binary, distribution-restricted)
 *.asar
+!web_engine/src/main/resources/resfile/resources/app/obsidian.asar
 
 # Signing materials
 **/*.p12

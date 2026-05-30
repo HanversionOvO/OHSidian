@@ -6,10 +6,24 @@ let fs = require('fs');
 let zlib = require('zlib');
 let EventEmitter = require('events');
 let electron = require('electron');
-electron.remote = require('@electron/remote/main');
-let {app, protocol, net, remote} = electron;
+let remote = electron.remote;
+try {
+	remote = require('@electron/remote/main');
+	electron.remote = remote;
+} catch (e) {
+	console.warn('[HMOS-REMOTE] @electron/remote/main is unavailable, falling back to electron.remote', e);
+	if (!remote) {
+		remote = {
+			initialize: () => {}
+		};
+		electron.remote = remote;
+	}
+}
+let {app, protocol, net} = electron;
 
-remote.initialize();
+if (remote && typeof remote.initialize === 'function') {
+	remote.initialize();
+}
 
 protocol.registerSchemesAsPrivileged([
 	{scheme: 'app', privileges: {standard: true, secure: true, supportFetchAPI: true, stream: true, codeCache: true}}

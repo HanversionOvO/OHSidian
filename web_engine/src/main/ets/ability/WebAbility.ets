@@ -183,20 +183,54 @@ export class WebAbility extends WebBaseAbility {
 
       let window: window.Window = windowStage.getMainWindowSync();
       // hide title bar
-      window.setWindowDecorVisible(!this.hideTitleBar);
+      try {
+        window.setWindowDecorVisible(!this.hideTitleBar);
+      } catch (exception) {
+        LogUtil.warn(TAG, 'Failed to set window decor visible: ' + JSON.stringify(exception));
+      }
+
       if (this.useDarkMode) {
         let buttonStyle: window.DecorButtonStyle = {
           colorMode: ConfigurationConstant.ColorMode.COLOR_MODE_DARK
         };
-        window.setDecorButtonStyle(buttonStyle);
+        try {
+          window.setDecorButtonStyle(buttonStyle);
+        } catch (exception) {
+          LogUtil.warn(TAG, 'Failed to set window decor button style: ' + JSON.stringify(exception));
+        }
       }
-      window.setWindowTitleMoveEnabled(!this.hideTitleBar);
-      window.setWindowTitleButtonVisible(this.maximizable, this.minimizable, this.closable);
-      window.setWindowTopmost(this.alwaysOntop);
-      window.setResizeByDragEnabled(this.resizable);
-      windowStage.setWindowModal(this.isModal);
-      if (this.isPanel)
-        window.setTitleAndDockHoverShown(false, false);
+      try {
+        window.setWindowTitleMoveEnabled(!this.hideTitleBar);
+      } catch (exception) {
+        LogUtil.warn(TAG, 'Failed to set window title move enabled: ' + JSON.stringify(exception));
+      }
+      try {
+        window.setWindowTitleButtonVisible(this.maximizable, this.minimizable, this.closable);
+      } catch (exception) {
+        LogUtil.warn(TAG, 'Failed to set window title button visible: ' + JSON.stringify(exception));
+      }
+      try {
+        window.setWindowTopmost(this.alwaysOntop);
+      } catch (exception) {
+        LogUtil.warn(TAG, 'Failed to set window topmost: ' + JSON.stringify(exception));
+      }
+      try {
+        window.setResizeByDragEnabled(this.resizable);
+      } catch (exception) {
+        LogUtil.warn(TAG, 'Failed to set resize by drag enabled: ' + JSON.stringify(exception));
+      }
+      try {
+        windowStage.setWindowModal(this.isModal);
+      } catch (exception) {
+        LogUtil.warn(TAG, 'Failed to set window modal: ' + JSON.stringify(exception));
+      }
+      if (this.isPanel) {
+        try {
+          window.setTitleAndDockHoverShown(false, false);
+        } catch (exception) {
+          LogUtil.warn(TAG, 'Failed to set title and dock hover shown: ' + JSON.stringify(exception));
+        }
+      }
 
       // window title button rect change callback must registered after loadContent/setUIContent
       try {
