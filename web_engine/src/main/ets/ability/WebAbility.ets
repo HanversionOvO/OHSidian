@@ -31,7 +31,7 @@ import LogUtil from '../utils/LogUtil';
 import window from '@ohos.window';
 import Want from '@ohos.app.ability.Want';
 import AbilityConstant from '@ohos.app.ability.AbilityConstant';
-import { deviceInfo, settings } from '@kit.BasicServicesKit';
+import { BusinessError, deviceInfo, settings } from '@kit.BasicServicesKit';
 import { NativeThemeAdapter } from '../adapter/NativeThemeAdapter';
 import { AbilityManager } from '../common/AbilityManager';
 import { Configuration } from '@ohos.app.ability.Configuration';
@@ -182,6 +182,28 @@ export class WebAbility extends WebBaseAbility {
       }
 
       let window: window.Window = windowStage.getMainWindowSync();
+      try {
+        window.setWindowLayoutFullScreen(true)
+          .then(() => {
+            LogUtil.info(TAG, 'Succeeded in setting window layout full screen');
+          })
+          .catch((err: BusinessError) => {
+            LogUtil.warn(TAG, 'Failed to set window layout full screen: ' + JSON.stringify(err));
+          });
+      } catch (exception) {
+        LogUtil.warn(TAG, 'Failed to call window layout full screen API: ' + JSON.stringify(exception));
+      }
+      try {
+        window.setSpecificSystemBarEnabled('navigationIndicator', false)
+          .then(() => {
+            LogUtil.info(TAG, 'Succeeded in setting navigation indicator immersive');
+          })
+          .catch((err: BusinessError) => {
+            LogUtil.warn(TAG, 'Failed to set navigation indicator immersive: ' + JSON.stringify(err));
+          });
+      } catch (exception) {
+        LogUtil.warn(TAG, 'Failed to call navigation indicator immersive API: ' + JSON.stringify(exception));
+      }
       // hide title bar
       try {
         window.setWindowDecorVisible(!this.hideTitleBar);
